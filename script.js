@@ -1,13 +1,14 @@
-// Installed frameworks
+//Declare the installed modules express and body-parser.
 const express = require('express');
 const bodyParser = require('body-parser');
 
-let app = express();
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+let note = [{ id: 1, body: 'We have a text' }, { id: 2, body: 'This is a second text' }];
 
-app.set('view engine', 'ejs');
+//call the express and Body-parser
+const app = express();
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 //serving static files
 app.use(express.static('public'));
@@ -43,5 +44,5 @@ app.post('/deleteNote/:id', function (req, res) {
 
 //then we set our server port. This should always be at bottom.
 app.listen(5000, function () {
-  console.log("NoteTaker server is running at port 5000...")
+  console.log("NoteApp server is running at port 5000...")
 });
